@@ -1,0 +1,83 @@
+.align-card {
+    height: 100vh;
+    display: flex; 
+    justify-content:center;
+    align-items: center;
+}
+
+.align-title-center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.align-buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 35px; 
+}
+
+.bg-form {
+    background-image: url("../../../assets/images/bg.jpg");
+    background-size: cover;
+    height: 50vh;
+    width: 50vh;
+}
+
+.card-title {
+    font-size: 2rem;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+.input-full-width {
+    width: 100%;
+    color: black;
+    font-weight: bold;
+}
+
+.bg-inputs {
+    background-color: rgba(109, 109, 109, 0.247);
+    border-radius: 30px;
+}
+
+.demo-table {
+    width: 80%;
+}
+  
+.mat-column-demo-position {
+width: 32px;
+border-right: 1px solid currentColor;
+padding-right: 24px;
+text-align: center;
+}
+  
+.mat-column-demo-name {
+padding-left: 16px;
+font-size: 20px;
+}
+
+.mat-column-demo-weight {
+font-style: italic;
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+  }
+
+.error {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: red;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    padding: 5px;
+}

@@ -1,0 +1,63 @@
+<div class="container-fluid">
+  <mat-grid-list cols="2"  rowHeight="100vh">
+    <mat-grid-tile>
+        <mat-card class="bg-form">
+            <mat-card-header class="align-title-center">
+                <mat-card-title class="card-title">Fiscon</mat-card-title>
+                <mat-card-subtitle class="card-title">Front-end</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="align-center bg-inputs">
+                <form [formGroup]="users">
+                  <mat-form-field class="input-full-width" appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput maxlength="50" placeholder="Digite seu Nome" autocomplete="off"  formControlName="name">
+                  </mat-form-field>
+                  <mat-form-field class="input-full-width" appearance="fill">
+                    <mat-label>Telefone</mat-label>
+                    <input type="tel" maxlength="11" matInput placeholder="11 9 6666-6666" autocomplete="off" formControlName="telephone">
+                  </mat-form-field>
+                    <mat-label class="error" *ngIf="error">{{error}}</mat-label>
+                </form>
+            </mat-card-content>
+            <mat-card-actions class="align-buttons">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+                <button mat-raised-button color="warn" (click)="onClear()">Limpar</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+      <mat-grid-tile>
+        <div fxLayout="column" style="width: 100vh;"> 
+          <div class="align-center">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+          <div class="align-center">
+            <table mat-table [dataSource]="dataSource" matSort #empTbSort="matSort" class="mat-elevation-z8 demo-table">
+              <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.id }}</td>
+              </ng-container>
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="name">Nome</th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+              <ng-container matColumnDef="telephone">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="telephone"> Telefone </th>
+                <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+              </ng-container>
+              <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header="delete"> Deletar </th>
+                <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" (click)="DeleteUser(element)">Delete</button> </td>
+                
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table> 
+          </div>        
+        </div>
+      </mat-grid-tile>
+  </mat-grid-list> 
+</div>
+
+
